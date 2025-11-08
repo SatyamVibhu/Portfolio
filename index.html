@@ -1,0 +1,1539 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satyam Vibhu - Digital Marketing Manager Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        
+        .hero-gradient { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .shape {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 60px; height: 60px; top: 60%; left: 80%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 40px; height: 40px; top: 80%; left: 20%; animation-delay: 4s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .card-premium { 
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-premium:hover::before {
+            left: 100%;
+        }
+        
+        .card-premium:hover { 
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .campaign-card {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .campaign-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .campaign-slideshow {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .campaign-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .campaign-image.active {
+            opacity: 1;
+        }
+        
+        .slideshow-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .skill-progress {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+            position: relative;
+        }
+        
+        .skill-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .metric-highlight {
+            background: linear-gradient(135deg, #f1f5f9, #ffffff);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-premium {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .campaign-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .campaign-grid {
+                padding: 0 0.5rem;
+                gap: 1rem;
+            }
+        }
+        
+        /* Mobile text overflow fixes */
+        @media (max-width: 768px) {
+            .text-overflow-fix {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+            
+            .card-premium {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .campaign-card {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+        
+        .company-section {
+            margin-bottom: 4rem;
+        }
+        
+        .company-header {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-gray-50"><!-- Navigation -->
+  <nav class="fixed top-0 w-full nav-glass z-50 shadow-sm">
+   <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+     <div class="text-2xl font-bold text-gradient">
+      Satyam Vibhu
+     </div>
+     <div class="hidden md:flex space-x-8"><a href="#about" class="text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium">About</a> <a href="#experience" class="text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium">Experience</a> <a href="#campaigns" class="text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium">Campaigns</a> <a href="#projects" class="text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium">Projects</a> <a href="#skills" class="text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium">Skills</a> <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium">Contact</a>
+     </div><!-- Mobile Navigation Menu -->
+     <div id="mobile-nav" class="hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
+      <div class="px-6 py-4 space-y-4"><a href="#about" class="block text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium py-2">About</a> <a href="#experience" class="block text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium py-2">Experience</a> <a href="#campaigns" class="block text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium py-2">Campaigns</a> <a href="#projects" class="block text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium py-2">Projects</a> <a href="#skills" class="block text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium py-2">Skills</a> <a href="#contact" class="block text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium py-2">Contact</a>
+      </div>
+     </div><button id="mobile-menu" class="md:hidden text-gray-600 hover:text-blue-600 transition-colors"> <i class="fas fa-bars text-xl"></i> </button>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <section class="hero-gradient text-white pt-24 pb-20 relative">
+   <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+   </div>
+   <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center animate-slide-up">
+     <h1 class="text-3xl md:text-6xl font-bold mb-6 leading-tight">Satyam Vibhu</h1>
+     <p class="text-base md:text-2xl mb-3 font-medium px-4">Digital Marketing Manager | Growth Hacker | Campaign Strategist</p>
+     <p class="text-sm md:text-lg opacity-90 mb-10 flex items-center justify-center px-4"><i class="fas fa-map-marker-alt mr-2"></i>Kanpur, India</p>
+     <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-12"><a href="mailto:satyamvibhu2001@gmail.com" class="btn-premium text-white px-6 sm:px-8 py-4 rounded-full font-semibold flex items-center justify-center"> <i class="fas fa-envelope mr-3"></i>Get In Touch </a> <a href="#campaigns" class="bg-white/20 hover:bg-white/30 text-white px-6 sm:px-8 py-4 rounded-full font-semibold transition-all duration-300 backdrop-blur-sm border border-white/30 flex items-center justify-center"> <i class="fas fa-rocket mr-3"></i>View Campaigns </a>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto px-4">
+      <div class="stats-card rounded-2xl p-4 md:p-8">
+       <h3 class="text-3xl md:text-4xl font-bold mb-2">6+</h3>
+       <p class="text-sm md:text-lg opacity-90">Years Experience</p>
+       <div class="mt-2 md:mt-4 text-xs md:text-sm opacity-75">
+        Across Multiple Industries
+       </div>
+      </div>
+      <div class="stats-card rounded-2xl p-4 md:p-8">
+       <h3 class="text-3xl md:text-4xl font-bold mb-2">50+</h3>
+       <p class="text-sm md:text-lg opacity-90">Campaigns Launched</p>
+       <div class="mt-2 md:mt-4 text-xs md:text-sm opacity-75">
+        With Measurable Results
+       </div>
+      </div>
+      <div class="stats-card rounded-2xl p-4 md:p-8">
+       <h3 class="text-3xl md:text-4xl font-bold mb-2">₹2Cr+</h3>
+       <p class="text-sm md:text-lg opacity-90">Revenue Impact</p>
+       <div class="mt-2 md:mt-4 text-xs md:text-sm opacity-75">
+        Generated for Clients
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">About Me</h2>
+     <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+     <div class="space-y-6 px-4 lg:px-0">
+      <p class="text-lg md:text-xl text-gray-600 leading-relaxed text-justify">Hi, I'm Satyam Vibhu – a result-oriented Digital Marketing Manager with 6+ years of experience building high-impact campaigns across healthcare, wellness, and emerging Web3 ecosystems. My work blends creativity with analytics, and strategy with execution.</p>
+      <p class="text-base md:text-lg text-gray-600 leading-relaxed text-justify">I specialize in creating integrated digital strategies that span SEO, paid ads, content marketing, influencer engagement, CRM funnels, and community growth. Whether it's launching a new hospital brand, scaling a wellness network, or driving wallet registrations for a decentralized platform, I approach every project with clarity, intent, and measurable outcomes.</p>
+      <p class="text-base md:text-lg text-gray-600 leading-relaxed text-justify">With an academic foundation in Computer Science (AI &amp; ML) and an MBA in Business Analytics, I bring a data-driven mindset to every marketing challenge.</p>
+      <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 pt-4">
+       <div class="flex items-center text-blue-600"><i class="fas fa-award mr-2"></i> <span class="font-semibold text-sm md:text-base">MBA Business Analytics</span>
+       </div>
+       <div class="flex items-center text-purple-600"><i class="fas fa-code mr-2"></i> <span class="font-semibold text-sm md:text-base">B.E. Computer Science</span>
+       </div>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-6 md:p-10 mx-4 lg:mx-0">
+      <h3 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-gray-800">Core Expertise</h3>
+      <div class="space-y-4 md:space-y-6">
+       <div class="flex items-start">
+        <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0"><i class="fas fa-hospital text-blue-600 text-lg md:text-xl"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+         <h4 class="font-semibold text-gray-800 mb-1 text-sm md:text-base">Healthcare Marketing</h4>
+         <p class="text-gray-600 text-xs md:text-sm">Brand launches, OPD generation, reputation management</p>
+        </div>
+       </div>
+       <div class="flex items-start">
+        <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0"><i class="fas fa-rocket text-purple-600 text-lg md:text-xl"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+         <h4 class="font-semibold text-gray-800 mb-1 text-sm md:text-base">Web3 Growth Hacking</h4>
+         <p class="text-gray-600 text-xs md:text-sm">Community building, airdrops, viral campaigns</p>
+        </div>
+       </div>
+       <div class="flex items-start">
+        <div class="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0"><i class="fas fa-chart-line text-green-600 text-lg md:text-xl"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+         <h4 class="font-semibold text-gray-800 mb-1 text-sm md:text-base">Performance Marketing</h4>
+         <p class="text-gray-600 text-xs md:text-sm">Meta Ads, Google Ads, conversion optimization</p>
+        </div>
+       </div>
+       <div class="flex items-start">
+        <div class="w-10 h-10 md:w-12 md:h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0"><i class="fas fa-users text-orange-600 text-lg md:text-xl"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+         <h4 class="font-semibold text-gray-800 mb-1 text-sm md:text-base">Team Development</h4>
+         <p class="text-gray-600 text-xs md:text-sm">Sales training, leadership, performance optimization</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Experience Section -->
+  <section id="experience" class="py-20 bg-gray-50">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Professional Journey</h2>
+     <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+    <div class="space-y-12"><!-- Rainbow Speech and Hearing Centre -->
+     <div class="card-premium rounded-2xl p-6 md:p-10 relative mx-4 md:mx-0">
+      <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-teal-500 to-teal-600 rounded-l-2xl"></div>
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 md:mb-8">
+       <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4 lg:mb-0">
+        <div class="w-12 h-12 md:w-16 md:h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-3 sm:mb-0 sm:mr-4 md:mr-6 flex-shrink-0"><i class="fas fa-deaf text-teal-600 text-lg md:text-2xl"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+         <h3 class="text-lg md:text-2xl font-bold text-gray-800">Digital Marketing Manager</h3>
+         <p class="text-base md:text-xl text-teal-600 font-semibold">Rainbow Speech and Hearing Centre</p>
+         <p class="text-xs md:text-base text-gray-600">Healthcare Marketing • Digital Administration • Patient Management</p>
+        </div>
+       </div>
+       <div class="text-left lg:text-right flex-shrink-0">
+        <p class="text-xs md:text-base text-gray-600 font-medium">January 2025 – Present</p>
+        <p class="text-xs md:text-sm text-gray-500">Kanpur, India</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+       <div>
+        <h4 class="font-bold text-gray-800 mb-3 md:mb-4 text-base md:text-lg">Key Responsibilities:</h4>
+        <ul class="space-y-2 md:space-y-3 text-gray-600">
+         <li class="flex items-start"><i class="fas fa-check-circle text-teal-600 mr-2 md:mr-3 mt-1 flex-shrink-0"></i> <span class="text-sm md:text-base">Managing all digital marketing and admin activities for the clinic</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-teal-600 mr-2 md:mr-3 mt-1 flex-shrink-0"></i> <span class="text-sm md:text-base">Handling social media pages and Google listings optimization</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-teal-600 mr-2 md:mr-3 mt-1 flex-shrink-0"></i> <span class="text-sm md:text-base">Managing patient inquiries, appointments, and feedback systems</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-teal-600 mr-2 md:mr-3 mt-1 flex-shrink-0"></i> <span class="text-sm md:text-base">Collaborating with doctors, audiologists, and designers for efficiency</span></li>
+        </ul>
+       </div>
+       <div class="grid grid-cols-2 gap-3 md:gap-4">
+        <div class="metric-highlight rounded-xl p-3 md:p-6 text-center">
+         <div class="text-2xl md:text-3xl font-bold text-teal-600 mb-1 md:mb-2">
+          100%
+         </div>
+         <div class="text-xs md:text-sm text-gray-600">
+          Digital Coverage
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-3 md:p-6 text-center">
+         <div class="text-2xl md:text-3xl font-bold text-teal-600 mb-1 md:mb-2">
+          24/7
+         </div>
+         <div class="text-xs md:text-sm text-gray-600">
+          Patient Support
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-3 md:p-6 text-center">
+         <div class="text-2xl md:text-3xl font-bold text-teal-600 mb-1 md:mb-2">
+          Clinic
+         </div>
+         <div class="text-xs md:text-sm text-gray-600">
+          Operations
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-3 md:p-6 text-center">
+         <div class="text-2xl md:text-3xl font-bold text-teal-600 mb-1 md:mb-2">
+          Team
+         </div>
+         <div class="text-xs md:text-sm text-gray-600">
+          Collaboration
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Paras Health -->
+     <div class="card-premium rounded-2xl p-6 md:p-10 relative mx-4 md:mx-0">
+      <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-blue-500 to-blue-600 rounded-l-2xl"></div>
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 md:mb-8">
+       <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4 lg:mb-0">
+        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-3 sm:mb-0 sm:mr-4 md:mr-6 flex-shrink-0"><i class="fas fa-hospital text-blue-600 text-lg md:text-2xl"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+         <h3 class="text-lg md:text-2xl font-bold text-gray-800">Digital Marketing Executive</h3>
+         <p class="text-base md:text-xl text-blue-600 font-semibold">Paras Health</p>
+         <p class="text-xs md:text-base text-gray-600">Healthcare Marketing • Digital Community Engagement</p>
+        </div>
+       </div>
+       <div class="text-left lg:text-right flex-shrink-0">
+        <p class="text-xs md:text-base text-gray-600 font-medium">September 2024 – December 2024</p>
+        <p class="text-xs md:text-sm text-gray-500">Kanpur, India</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+       <div>
+        <h4 class="font-bold text-gray-800 mb-3 md:mb-4 text-base md:text-lg">Key Achievements:</h4>
+        <ul class="space-y-2 md:space-y-3 text-gray-600">
+         <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-2 md:mr-3 mt-1 flex-shrink-0"></i> <span class="text-sm md:text-base">Successfully launched Kanpur unit brand with 50K+ local reach</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-2 md:mr-3 mt-1 flex-shrink-0"></i> <span class="text-sm md:text-base">Generated 500+ OPD leads through integrated campaigns</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-2 md:mr-3 mt-1 flex-shrink-0"></i> <span class="text-sm md:text-base">Organized health walkathon with 1000+ participants</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-blue-600 mr-2 md:mr-3 mt-1 flex-shrink-0"></i> <span class="text-sm md:text-base">Built reputation for 25+ doctors through content marketing</span></li>
+        </ul>
+       </div>
+       <div class="grid grid-cols-2 gap-3 md:gap-4">
+        <div class="metric-highlight rounded-xl p-3 md:p-6 text-center">
+         <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-2">
+          500+
+         </div>
+         <div class="text-xs md:text-sm text-gray-600">
+          OPD Leads
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-3 md:p-6 text-center">
+         <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-2">
+          50K+
+         </div>
+         <div class="text-xs md:text-sm text-gray-600">
+          Campaign Reach
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-3 md:p-6 text-center">
+         <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-2">
+          1000+
+         </div>
+         <div class="text-xs md:text-sm text-gray-600">
+          Event Attendance
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-3 md:p-6 text-center">
+         <div class="text-2xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-2">
+          85%
+         </div>
+         <div class="text-xs md:text-sm text-gray-600">
+          Brand Recognition
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- BrainAlive AI -->
+     <div class="card-premium rounded-2xl p-6 md:p-10 relative mx-4 md:mx-0">
+      <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-purple-500 to-purple-600 rounded-l-2xl"></div>
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 md:mb-8">
+       <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4 lg:mb-0">
+        <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-3 sm:mb-0 sm:mr-4 md:mr-6 flex-shrink-0"><i class="fas fa-brain text-purple-600 text-lg md:text-2xl"></i>
+        </div>
+        <div class="min-w-0 flex-1">
+         <h3 class="text-lg md:text-2xl font-bold text-gray-800">Growth Hacking Executive</h3>
+         <p class="text-base md:text-xl text-purple-600 font-semibold">BrainAlive AI</p>
+         <p class="text-xs md:text-base text-gray-600">Web3 • AI • Community Growth</p>
+        </div>
+       </div>
+       <div class="text-left lg:text-right flex-shrink-0">
+        <p class="text-xs md:text-base text-gray-600 font-medium">2023 – 2024</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+       <div>
+        <h4 class="font-bold text-gray-800 mb-4 text-lg">Key Achievements:</h4>
+        <ul class="space-y-3 text-gray-600">
+         <li class="flex items-start"><i class="fas fa-check-circle text-purple-600 mr-3 mt-1"></i> <span>Built 10K+ member Web3 community using Zealy and Discord</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-purple-600 mr-3 mt-1"></i> <span>Launched viral waitlist campaign with 5K+ signups</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-purple-600 mr-3 mt-1"></i> <span>Executed successful airdrop campaigns with 15K+ wallet connections</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-purple-600 mr-3 mt-1"></i> <span>Achieved 25% community engagement rate</span></li>
+        </ul>
+       </div>
+       <div class="grid grid-cols-2 gap-4">
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-purple-600 mb-2">
+          10K+
+         </div>
+         <div class="text-sm text-gray-600">
+          Community Members
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-purple-600 mb-2">
+          5K+
+         </div>
+         <div class="text-sm text-gray-600">
+          Waitlist Signups
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-purple-600 mb-2">
+          25%
+         </div>
+         <div class="text-sm text-gray-600">
+          Engagement Rate
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-purple-600 mb-2">
+          15K+
+         </div>
+         <div class="text-sm text-gray-600">
+          Wallet Connections
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Vestige -->
+     <div class="card-premium rounded-2xl p-10 relative">
+      <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-green-500 to-green-600 rounded-l-2xl"></div>
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+       <div class="flex items-center mb-4 lg:mb-0">
+        <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mr-6"><i class="fas fa-leaf text-green-600 text-2xl"></i>
+        </div>
+        <div>
+         <h3 class="text-2xl font-bold text-gray-800">Wellness Sales &amp; Team Development</h3>
+         <p class="text-xl text-green-600 font-semibold">Vestige</p>
+         <p class="text-gray-600">Direct Sales • Team Building • Customer Relations</p>
+        </div>
+       </div>
+       <div class="text-right">
+        <p class="text-gray-600 font-medium">2019 – 2023</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+       <div>
+        <h4 class="font-bold text-gray-800 mb-4 text-lg">Key Achievements:</h4>
+        <ul class="space-y-3 text-gray-600">
+         <li class="flex items-start"><i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i> <span>Trained and developed 100+ team members</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i> <span>Achieved 150% sales growth through strategic campaigns</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i> <span>Maintained 85% customer retention rate</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-green-600 mr-3 mt-1"></i> <span>Served 2000+ customers with personalized consultations</span></li>
+        </ul>
+       </div>
+       <div class="grid grid-cols-2 gap-4">
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-green-600 mb-2">
+          100+
+         </div>
+         <div class="text-sm text-gray-600">
+          Team Members
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-green-600 mb-2">
+          85%
+         </div>
+         <div class="text-sm text-gray-600">
+          Retention Rate
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-green-600 mb-2">
+          150%
+         </div>
+         <div class="text-sm text-gray-600">
+          Sales Growth
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-green-600 mb-2">
+          2000+
+         </div>
+         <div class="text-sm text-gray-600">
+          Customers Served
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Ebiz -->
+     <div class="card-premium rounded-2xl p-10 relative">
+      <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-orange-500 to-orange-600 rounded-l-2xl"></div>
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+       <div class="flex items-center mb-4 lg:mb-0">
+        <div class="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mr-6"><i class="fas fa-handshake text-orange-600 text-2xl"></i>
+        </div>
+        <div>
+         <h3 class="text-2xl font-bold text-gray-800">Client Acquisition Specialist</h3>
+         <p class="text-xl text-orange-600 font-semibold">Ebiz</p>
+         <p class="text-gray-600">B2C Sales • Client Relations • Business Development</p>
+        </div>
+       </div>
+       <div class="text-right">
+        <p class="text-gray-600 font-medium">2018 – 2019</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+       <div>
+        <h4 class="font-bold text-gray-800 mb-4 text-lg">Key Achievements:</h4>
+        <ul class="space-y-3 text-gray-600">
+         <li class="flex items-start"><i class="fas fa-check-circle text-orange-600 mr-3 mt-1"></i> <span>Acquired 200+ clients through strategic B2C campaigns</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-orange-600 mr-3 mt-1"></i> <span>Generated ₹50L+ revenue through client acquisition</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-orange-600 mr-3 mt-1"></i> <span>Achieved 30% conversion rate on pitch presentations</span></li>
+         <li class="flex items-start"><i class="fas fa-check-circle text-orange-600 mr-3 mt-1"></i> <span>Maintained 95% client satisfaction score</span></li>
+        </ul>
+       </div>
+       <div class="grid grid-cols-2 gap-4">
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-orange-600 mb-2">
+          200+
+         </div>
+         <div class="text-sm text-gray-600">
+          Clients Acquired
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-orange-600 mb-2">
+          30%
+         </div>
+         <div class="text-sm text-gray-600">
+          Conversion Rate
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-orange-600 mb-2">
+          ₹50L+
+         </div>
+         <div class="text-sm text-gray-600">
+          Revenue Generated
+         </div>
+        </div>
+        <div class="metric-highlight rounded-xl p-6 text-center">
+         <div class="text-3xl font-bold text-orange-600 mb-2">
+          95%
+         </div>
+         <div class="text-sm text-gray-600">
+          Client Satisfaction
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Campaigns Section -->
+  <section id="campaigns" class="py-20 bg-white">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Campaign Portfolio</h2>
+     <p class="text-xl text-gray-600 mb-6">Comprehensive showcase of successful campaigns across healthcare and Web3 industries</p>
+     <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    </div><!-- Paras Health Campaigns -->
+    <div class="company-section">
+     <div class="company-header">
+      <div class="flex items-center justify-center mb-4">
+       <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-6 shadow-lg"><i class="fas fa-hospital text-white text-3xl"></i>
+       </div>
+       <div>
+        <h3 class="text-4xl font-bold text-gray-800">Paras Health Campaigns</h3>
+        <p class="text-gray-600 text-lg">Healthcare Marketing • September 2024 – Present</p>
+       </div>
+      </div>
+     </div>
+     <div class="campaign-grid"><!-- Brand Launch Campaign -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="brand-launch"><img src="https://drive.google.com/thumbnail?id=1hV9XR9gtK7MDITSC7pTzzIC0cFRr_27r&amp;sz=w800" alt="Brand Launch Campaign" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1zlmD8emhagClSA5z4z4-WI4wC6zJUzLg&amp;sz=w800" alt="Brand Launch Campaign" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=1_1fdBWkzdC8gE7VNPRCn_pZuYCMe4Gus&amp;sz=w800" alt="Brand Launch Campaign" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-4 md:p-6">
+        <div class="flex items-center mb-3 md:mb-4"><i class="fas fa-rocket text-blue-600 text-lg md:text-2xl mr-2 md:mr-3 flex-shrink-0"></i>
+         <h4 class="text-lg md:text-xl font-bold text-gray-800">Brand Launch Campaign</h4>
+        </div>
+        <p class="text-sm md:text-base text-gray-600 mb-3 md:mb-4 text-justify">Complete digital brand launch for Paras Health's new Kanpur facility, establishing market presence and building trust in the local healthcare ecosystem.</p>
+        <div class="grid grid-cols-2 gap-2 md:gap-3 mb-3 md:mb-4">
+         <div class="bg-blue-50 rounded-lg p-2 md:p-3 text-center">
+          <div class="text-lg md:text-xl font-bold text-blue-600">
+           50K+
+          </div>
+          <div class="text-xs text-gray-600">
+           Local Reach
+          </div>
+         </div>
+         <div class="bg-blue-50 rounded-lg p-2 md:p-3 text-center">
+          <div class="text-lg md:text-xl font-bold text-blue-600">
+           85%
+          </div>
+          <div class="text-xs text-gray-600">
+           Brand Recognition
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-1 md:gap-2"><span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">Local SEO</span> <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">GMB Setup</span> <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">Community Engagement</span>
+        </div>
+       </div>
+      </div><!-- OPD Lead Generation -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="opd-lead"><img src="https://drive.google.com/thumbnail?id=1KoqQ3LeQn-1LPzPkBAYgfXQ8ySXskF6J&amp;sz=w800" alt="OPD Lead Generation" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1qUpt24CZWODCOtpyu83whh3Emm0Wb9gu&amp;sz=w800" alt="OPD Lead Generation" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=1UHWs5Dzvl9NNsdTkfXPIvE8K6IMyKzm8&amp;sz=w800" alt="OPD Lead Generation" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center mb-4"><i class="fas fa-user-md text-green-600 text-2xl mr-3"></i>
+         <h4 class="text-xl font-bold text-gray-800">OPD Lead Generation</h4>
+        </div>
+        <p class="text-gray-600 mb-4 text-justify">Integrated digital campaign to drive OPD appointments and health check-ups through targeted advertising and community outreach.</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+         <div class="bg-green-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-green-600">
+           500+
+          </div>
+          <div class="text-xs text-gray-600">
+           OPD Leads
+          </div>
+         </div>
+         <div class="bg-green-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-green-600">
+           35%
+          </div>
+          <div class="text-xs text-gray-600">
+           Conversion Rate
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-xs">Meta Ads</span> <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-xs">Google Ads</span> <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-xs">WhatsApp API</span>
+        </div>
+       </div>
+      </div><!-- Doctor Reputation Building -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="doctor-reputation"><img src="https://drive.google.com/thumbnail?id=1K0kakR-YCoUz3ddmmSk2DzWFtTH31VaK&amp;sz=w800" alt="Doctor Reputation Building" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1t_FEZXDg8XCODvEGcGkMgWYb85LiOIxs&amp;sz=w800" alt="Doctor Reputation Building" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=1yAW7DF2PFzTamNbv84Y9MIJLYUfSBBra&amp;sz=w800" alt="Doctor Reputation Building" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center mb-4"><i class="fas fa-star text-purple-600 text-2xl mr-3"></i>
+         <h4 class="text-xl font-bold text-gray-800">Doctor Reputation Building</h4>
+        </div>
+        <p class="text-gray-600 mb-4 text-justify">Strategic content marketing to establish doctors as thought leaders and build patient trust through educational content and testimonials.</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+         <div class="bg-purple-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-purple-600">
+           25+
+          </div>
+          <div class="text-xs text-gray-600">
+           Doctors Featured
+          </div>
+         </div>
+         <div class="bg-purple-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-purple-600">
+           90%
+          </div>
+          <div class="text-xs text-gray-600">
+           Trust Score
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2"><span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-xs">Content Marketing</span> <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-xs">Testimonials</span> <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-xs">Social Media</span>
+        </div>
+       </div>
+      </div><!-- Health Walkathon -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="health-walkathon"><img src="https://drive.google.com/thumbnail?id=1B8As1tXHToZAWLOHiz6vUVyrVmorB0m4&amp;sz=w800" alt="Health Walkathon Campaign" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1Leq6EGFnCaPfONGY2hSq9VhhHSFnJ1va&amp;sz=w800" alt="Health Walkathon Campaign" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=15AIqOv047XQCBSY_xcDxKXXFPlmbVhyH&amp;sz=w800" alt="Health Walkathon Campaign" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center mb-4"><i class="fas fa-walking text-orange-600 text-2xl mr-3"></i>
+         <h4 class="text-xl font-bold text-gray-800">Health Walkathon Campaign</h4>
+        </div>
+        <p class="text-gray-600 mb-4 text-justify">Large-scale community health awareness event promoting preventive healthcare through physical activity and health screenings.</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+         <div class="bg-orange-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-orange-600">
+           1000+
+          </div>
+          <div class="text-xs text-gray-600">
+           Participants
+          </div>
+         </div>
+         <div class="bg-orange-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-orange-600">
+           75K
+          </div>
+          <div class="text-xs text-gray-600">
+           Social Reach
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2"><span class="bg-orange-100 text-orange-600 px-2 py-1 rounded text-xs">Event Marketing</span> <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded text-xs">Community Outreach</span> <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded text-xs">Live Coverage</span>
+        </div>
+       </div>
+      </div><!-- Health Awareness Campaign -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="health-awareness"><img src="https://drive.google.com/thumbnail?id=1q0ZowBs97d3DSW1q_o39i7sfaBAIGV96&amp;sz=w800" alt="Health Awareness Campaign" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1ZC7t547MVTXdWJGc9hu_noHS_9YjpOjz&amp;sz=w800" alt="Health Awareness Campaign" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=1Zcc4-YhUBaQWixWuFzN2ujKFR95BXriP&amp;sz=w800" alt="Health Awareness Campaign" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center mb-4"><i class="fas fa-heart text-red-600 text-2xl mr-3"></i>
+         <h4 class="text-xl font-bold text-gray-800">Health Awareness Campaign</h4>
+        </div>
+        <p class="text-gray-600 mb-4 text-justify">Educational campaign focusing on preventive healthcare, early detection, and healthy lifestyle promotion across digital platforms.</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+         <div class="bg-red-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-red-600">
+           100K+
+          </div>
+          <div class="text-xs text-gray-600">
+           Content Views
+          </div>
+         </div>
+         <div class="bg-red-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-red-600">
+           15%
+          </div>
+          <div class="text-xs text-gray-600">
+           Engagement Rate
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2"><span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs">Educational Content</span> <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs">Video Marketing</span> <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs">Infographics</span>
+        </div>
+       </div>
+      </div><!-- Patient Testimonial Campaign -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="patient-testimonials"><img src="https://drive.google.com/thumbnail?id=1mmgmzM4bpbaLa12maIfovlNDF2SviyaN&amp;sz=w800" alt="Patient Testimonial Campaign" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1TTs4MgIoDchSF-3anIyIySK1Y-GJ9YOx&amp;sz=w800" alt="Patient Testimonial Campaign" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=1s37mAIN995GJcgiDxp9KZ_81aHSgR6Tv&amp;sz=w800" alt="Patient Testimonial Campaign" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center mb-4"><i class="fas fa-quote-left text-teal-600 text-2xl mr-3"></i>
+         <h4 class="text-xl font-bold text-gray-800">Patient Testimonial Campaign</h4>
+        </div>
+        <p class="text-gray-600 mb-4 text-justify">Authentic patient success stories and testimonials to build trust and credibility for healthcare services and medical expertise.</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+         <div class="bg-teal-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-teal-600">
+           50+
+          </div>
+          <div class="text-xs text-gray-600">
+           Testimonials
+          </div>
+         </div>
+         <div class="bg-teal-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-teal-600">
+           95%
+          </div>
+          <div class="text-xs text-gray-600">
+           Trust Rating
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2"><span class="bg-teal-100 text-teal-600 px-2 py-1 rounded text-xs">Video Testimonials</span> <span class="bg-teal-100 text-teal-600 px-2 py-1 rounded text-xs">Case Studies</span> <span class="bg-teal-100 text-teal-600 px-2 py-1 rounded text-xs">Success Stories</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- BrainAlive AI Campaigns -->
+    <div class="company-section">
+     <div class="company-header">
+      <div class="flex items-center justify-center mb-4">
+       <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mr-6 shadow-lg"><i class="fas fa-brain text-white text-3xl"></i>
+       </div>
+       <div>
+        <h3 class="text-4xl font-bold text-gray-800">BrainAlive AI Campaigns</h3>
+        <p class="text-gray-600 text-lg">Web3 • AI • Community Growth • 2023 – 2024</p>
+       </div>
+      </div>
+     </div>
+     <div class="campaign-grid"><!-- Community Building Campaign -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="community-building"><img src="https://drive.google.com/thumbnail?id=1Cd4RYlUMmcIoe-S1b6x6Ey0H59j3OCsu&amp;sz=w800" alt="Web3 Community Building" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1bo-zu34XH2JYTML5jKs-vYSUwnMlZjr3&amp;sz=w800" alt="Web3 Community Building" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=1lbCUsdO8oPO0MzXPkEh6QQXCLh405vn0&amp;sz=w800" alt="Web3 Community Building" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center mb-4"><i class="fas fa-users text-purple-600 text-2xl mr-3"></i>
+         <h4 class="text-xl font-bold text-gray-800">Web3 Community Building</h4>
+        </div>
+        <p class="text-gray-600 mb-4 text-justify">Built and scaled a thriving 10K+ member Web3 community using Zealy, Discord, and innovative engagement strategies for BrainAlive AI platform.</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+         <div class="bg-purple-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-purple-600">
+           10K+
+          </div>
+          <div class="text-xs text-gray-600">
+           Community Members
+          </div>
+         </div>
+         <div class="bg-purple-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-purple-600">
+           25%
+          </div>
+          <div class="text-xs text-gray-600">
+           Engagement Rate
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2"><span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-xs">Zealy</span> <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-xs">Discord</span> <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-xs">Community Management</span>
+        </div>
+       </div>
+      </div><!-- Viral Waitlist Campaign -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="viral-waitlist"><img src="https://drive.google.com/thumbnail?id=1JtFkdewV8pDT7X9-N_JofaKX4Tbvwn4h&amp;sz=w800" alt="Viral Waitlist Campaign" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1cwO_DfxDrt4G0tW_PHnJzJ1uwBMv5g61&amp;sz=w800" alt="Viral Waitlist Campaign" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=1vZDq_r9Ot_Q_4eBiOJ6ftEbhB7WQtSaT&amp;sz=w800" alt="Viral Waitlist Campaign" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center mb-4"><i class="fas fa-rocket text-pink-600 text-2xl mr-3"></i>
+         <h4 class="text-xl font-bold text-gray-800">Viral Waitlist Campaign</h4>
+        </div>
+        <p class="text-gray-600 mb-4 text-justify">Launched a highly successful viral waitlist campaign that generated 5K+ signups through referral mechanics and social media amplification.</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+         <div class="bg-pink-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-pink-600">
+           5K+
+          </div>
+          <div class="text-xs text-gray-600">
+           Waitlist Signups
+          </div>
+         </div>
+         <div class="bg-pink-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-pink-600">
+           40%
+          </div>
+          <div class="text-xs text-gray-600">
+           Viral Coefficient
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2"><span class="bg-pink-100 text-pink-600 px-2 py-1 rounded text-xs">Viral Marketing</span> <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded text-xs">Referral System</span> <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded text-xs">Social Amplification</span>
+        </div>
+       </div>
+      </div><!-- Airdrop Campaign -->
+      <div class="campaign-card rounded-2xl shadow-lg overflow-hidden">
+       <div class="campaign-slideshow" data-slideshow="airdrop-campaign"><img src="https://drive.google.com/thumbnail?id=1FFpevCXhpWnPLNS2ELu8rHYetsk-8FZR&amp;sz=w800" alt="Strategic Airdrop Campaign" class="campaign-image active"> <img src="https://drive.google.com/thumbnail?id=1ws9tnt6ae0S9D8on0T7EmA4i-LH4URJF&amp;sz=w800" alt="Strategic Airdrop Campaign" class="campaign-image"> <img src="https://drive.google.com/thumbnail?id=1ENuR-4A7qDe_muLa3cd2sdeRadFQzjfh&amp;sz=w800" alt="Strategic Airdrop Campaign" class="campaign-image">
+        <div class="slideshow-indicators">
+         <div class="indicator active" data-slide="0"></div>
+         <div class="indicator" data-slide="1"></div>
+         <div class="indicator" data-slide="2"></div>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center mb-4"><i class="fas fa-coins text-yellow-600 text-2xl mr-3"></i>
+         <h4 class="text-xl font-bold text-gray-800">Strategic Airdrop Campaign</h4>
+        </div>
+        <p class="text-gray-600 mb-4 text-justify">Executed successful airdrop campaigns that drove massive wallet registrations and platform engagement with 15K+ wallet connections.</p>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+         <div class="bg-yellow-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-yellow-600">
+           15K+
+          </div>
+          <div class="text-xs text-gray-600">
+           Wallet Connections
+          </div>
+         </div>
+         <div class="bg-yellow-50 rounded-lg p-3 text-center">
+          <div class="text-xl font-bold text-yellow-600">
+           80%
+          </div>
+          <div class="text-xs text-gray-600">
+           Participation Rate
+          </div>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2"><span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded text-xs">Airdrop Strategy</span> <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded text-xs">Wallet Integration</span> <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded text-xs">Token Distribution</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Campaign Success Summary -->
+    <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-12 text-white text-center relative overflow-hidden">
+     <div class="absolute inset-0 bg-black/10"></div>
+     <div class="relative z-10">
+      <h3 class="text-4xl font-bold mb-8">Overall Campaign Impact</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+       <div class="stats-card rounded-2xl p-4">
+        <div class="text-4xl font-bold mb-2">
+         45+
+        </div>
+        <div class="text-sm opacity-90">
+         Campaigns
+        </div>
+       </div>
+       <div class="stats-card rounded-2xl p-4">
+        <div class="text-4xl font-bold mb-2">
+         100K+
+        </div>
+        <div class="text-sm opacity-90">
+         Total Reach
+        </div>
+       </div>
+       <div class="stats-card rounded-2xl p-4">
+        <div class="text-4xl font-bold mb-2">
+         ₹2Cr+
+        </div>
+        <div class="text-sm opacity-90">
+         Revenue
+        </div>
+       </div>
+       <div class="stats-card rounded-2xl p-4">
+        <div class="text-4xl font-bold mb-2">
+         85%
+        </div>
+        <div class="text-sm opacity-90">
+         Success Rate
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gray-50">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+     <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-hospital text-4xl text-blue-600"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">Hospital Brand Launch</h3>
+      <p class="text-gray-600 mb-4 text-justify">Complete digital brand launch including local SEO, GMB optimization, and community engagement campaigns.</p>
+      <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200"><span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full">Healthcare</span> <span>2024</span>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-users text-4xl text-purple-600"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">Web3 Community Growth</h3>
+      <p class="text-gray-600 mb-4 text-justify">Built and scaled a 10K+ member community using Zealy, Galxe, and QuestN platforms with viral waitlist campaigns.</p>
+      <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200"><span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full">Web3</span> <span>2023-2024</span>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-chart-line text-4xl text-green-600"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">OPD Lead Generation</h3>
+      <p class="text-gray-600 mb-4 text-justify">Developed integrated campaigns combining Meta Ads, Google Ads, and WhatsApp Business API for patient acquisition.</p>
+      <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200"><span class="bg-green-100 text-green-600 px-3 py-1 rounded-full">Digital Marketing</span> <span>2024</span>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-walking text-4xl text-red-600"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">Health Walkathon</h3>
+      <p class="text-gray-600 mb-4 text-justify">Organized and promoted large-scale health awareness walkathon with 1000+ participants through digital campaigns.</p>
+      <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200"><span class="bg-red-100 text-red-600 px-3 py-1 rounded-full">Event Marketing</span> <span>2024</span>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-coins text-4xl text-yellow-600"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">Airdrop Campaign</h3>
+      <p class="text-gray-600 mb-4 text-justify">Designed and executed viral airdrop campaigns that drove massive wallet registrations and platform engagement.</p>
+      <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200"><span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full">Web3</span> <span>2023</span>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-users-cog text-4xl text-indigo-600"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">Team Development</h3>
+      <p class="text-gray-600 mb-4 text-justify">Built and trained high-performing sales teams with 85% retention rate and 150% growth in sales performance.</p>
+      <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200"><span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full">Team Building</span> <span>2019-2023</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Skills Section -->
+  <section id="skills" class="py-20 bg-white">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Skills &amp; Expertise</h2>
+     <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-bullhorn text-4xl text-blue-600"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">Marketing &amp; Ads</h3>
+      <div class="space-y-3">
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">Meta Ads Manager</span> <span class="text-sm text-blue-600">95%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-blue-500 to-blue-600" style="width: 95%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">Google Ads</span> <span class="text-sm text-blue-600">90%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-blue-500 to-blue-600" style="width: 90%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">WhatsApp Business</span> <span class="text-sm text-blue-600">85%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-blue-500 to-blue-600" style="width: 85%"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-palette text-4xl text-purple-600"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">Design &amp; Content</h3>
+      <div class="space-y-3">
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">Canva</span> <span class="text-sm text-purple-600">95%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-purple-500 to-purple-600" style="width: 95%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">WordPress</span> <span class="text-sm text-purple-600">80%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-purple-500 to-purple-600" style="width: 80%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">Content Strategy</span> <span class="text-sm text-purple-600">90%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-purple-500 to-purple-600" style="width: 90%"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-chart-bar text-4xl text-green-600"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">Analytics &amp; SEO</h3>
+      <div class="space-y-3">
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">Google Analytics</span> <span class="text-sm text-green-600">85%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-green-500 to-green-600" style="width: 85%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">SEMrush</span> <span class="text-sm text-green-600">80%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-green-500 to-green-600" style="width: 80%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">GMB Optimization</span> <span class="text-sm text-green-600">90%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-green-500 to-green-600" style="width: 90%"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-8 text-center">
+      <div class="w-20 h-20 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6"><i class="fas fa-cogs text-4xl text-orange-600"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">Web3 &amp; Tools</h3>
+      <div class="space-y-3">
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">Community Building</span> <span class="text-sm text-orange-600">95%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-orange-500 to-orange-600" style="width: 95%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">Zealy/Galxe</span> <span class="text-sm text-orange-600">90%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-orange-500 to-orange-600" style="width: 90%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm text-gray-600">Project Management</span> <span class="text-sm text-orange-600">85%</span>
+        </div>
+        <div class="skill-progress">
+         <div class="skill-fill bg-gradient-to-r from-orange-500 to-orange-600" style="width: 85%"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Education Section -->
+  <section class="py-20 bg-gray-50">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Education</h2>
+     <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+     <div class="card-premium rounded-2xl p-10">
+      <div class="flex items-center mb-6">
+       <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mr-6"><i class="fas fa-graduation-cap text-4xl text-blue-600"></i>
+       </div>
+       <div>
+        <h3 class="text-2xl font-bold text-gray-800">MBA – Business Analytics</h3>
+        <p class="text-gray-600 text-lg">Marketing Minor (IBM)</p>
+       </div>
+      </div>
+      <p class="text-gray-600 mb-2 text-lg">Chandigarh University</p>
+      <p class="text-gray-500 mb-4">2022 – 2024</p>
+      <div class="bg-blue-50 rounded-xl p-4">
+       <p class="text-gray-600 text-sm text-justify">Specialized in data-driven marketing strategies, consumer behavior analysis, and business intelligence tools.</p>
+      </div>
+     </div>
+     <div class="card-premium rounded-2xl p-10">
+      <div class="flex items-center mb-6">
+       <div class="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center mr-6"><i class="fas fa-laptop-code text-4xl text-purple-600"></i>
+       </div>
+       <div>
+        <h3 class="text-2xl font-bold text-gray-800">B.E. – Computer Science</h3>
+        <p class="text-gray-600 text-lg">AI &amp; ML Specialization</p>
+       </div>
+      </div>
+      <p class="text-gray-600 mb-2 text-lg">Chandigarh University</p>
+      <p class="text-gray-500 mb-4">2018 – 2022</p>
+      <div class="bg-purple-50 rounded-xl p-4">
+       <p class="text-gray-600 text-sm text-justify">Foundation in artificial intelligence, machine learning algorithms, and data science applications in marketing.</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Section -->
+  <section id="contact" class="py-20 hero-gradient text-white relative">
+   <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+   </div>
+   <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+    <h2 class="text-3xl md:text-5xl font-bold mb-8">Let's Create Something Amazing</h2>
+    <p class="text-lg md:text-2xl mb-12 opacity-90">Ready to drive growth and build impactful campaigns? Let's connect!</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 px-4">
+     <div class="stats-card rounded-2xl p-6 md:p-8"><i class="fas fa-envelope text-3xl md:text-4xl mb-3 md:mb-4"></i>
+      <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3">Email</h3>
+      <p class="opacity-90 text-xs md:text-sm break-all">satyamvibhu2001@gmail.com</p>
+     </div>
+     <div class="stats-card rounded-2xl p-6 md:p-8"><i class="fas fa-map-marker-alt text-3xl md:text-4xl mb-3 md:mb-4"></i>
+      <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3">Location</h3>
+      <p class="opacity-90 text-sm md:text-base">Kanpur, India</p>
+     </div>
+     <div class="stats-card rounded-2xl p-6 md:p-8"><i class="fab fa-linkedin text-3xl md:text-4xl mb-3 md:mb-4"></i>
+      <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3">LinkedIn</h3><a href="http://www.linkedin.com/in/satyamvibhu25/" target="_blank" class="opacity-90 hover:opacity-100 transition-opacity text-sm md:text-base">Connect with me</a>
+     </div>
+    </div>
+    <div class="stats-card rounded-2xl p-6 md:p-10 max-w-3xl mx-auto mx-4">
+     <h3 class="text-xl md:text-3xl font-bold mb-6 md:mb-8">Get In Touch</h3>
+     <form class="space-y-4 md:space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"><input type="text" placeholder="Your Name" class="w-full px-3 md:px-6 py-3 md:py-4 rounded-xl bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:border-white focus:bg-white/30 transition-all duration-300 backdrop-blur-sm text-sm md:text-base"> <input type="email" placeholder="Your Email" class="w-full px-3 md:px-6 py-3 md:py-4 rounded-xl bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:border-white focus:bg-white/30 transition-all duration-300 backdrop-blur-sm text-sm md:text-base">
+      </div><input type="text" placeholder="Subject" class="w-full px-3 md:px-6 py-3 md:py-4 rounded-xl bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:border-white focus:bg-white/30 transition-all duration-300 backdrop-blur-sm text-sm md:text-base"> <textarea placeholder="Your Message" rows="4" class="w-full px-3 md:px-6 py-3 md:py-4 rounded-xl bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:border-white focus:bg-white/30 transition-all duration-300 backdrop-blur-sm resize-none text-sm md:text-base"></textarea> <button type="submit" class="w-full bg-white text-blue-600 font-bold py-3 md:py-4 rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 text-sm md:text-base"> <i class="fas fa-paper-plane mr-2 md:mr-3"></i>Send Message </button>
+     </form>
+     <p class="text-xs md:text-sm opacity-75 mt-4 md:mt-6">Demo form - Messages will be displayed as alerts</p>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+   <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="text-gradient text-3xl font-bold mb-4">
+     Satyam Vibhu
+    </div>
+    <p class="text-xl mb-6">© 2024 Digital Marketing Manager</p>
+    <p class="text-gray-400 text-lg">Driving growth through data-driven marketing strategies</p>
+    <div class="mt-8 flex justify-center space-x-6"><a href="http://www.linkedin.com/in/satyamvibhu25/" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl"> <i class="fab fa-linkedin"></i> </a> <a href="mailto:satyamvibhu2001@gmail.com" class="text-gray-400 hover:text-white transition-colors text-2xl"> <i class="fas fa-envelope"></i> </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const icon = this.querySelector('i');
+            
+            if (mobileNav.classList.contains('hidden')) {
+                mobileNav.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                mobileNav.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileNav = document.getElementById('mobile-nav');
+                const menuButton = document.getElementById('mobile-menu');
+                const icon = menuButton.querySelector('i');
+                
+                mobileNav.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[placeholder="Your Name"]').value;
+            const email = this.querySelector('input[placeholder="Your Email"]').value;
+            const subject = this.querySelector('input[placeholder="Subject"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            if (name && email && subject && message) {
+                alert(`Thank you ${name}! Your message has been received. I'll get back to you soon at ${email}.`);
+                this.reset();
+            } else {
+                alert('Please fill in all fields before submitting.');
+            }
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card-premium, .campaign-card, section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced hover effects
+        document.querySelectorAll('.card-premium, .campaign-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Skill bar animations
+        const skillObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillFills = entry.target.querySelectorAll('.skill-fill');
+                    skillFills.forEach(fill => {
+                        const width = fill.style.width;
+                        fill.style.width = '0%';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('#skills .card-premium').forEach(card => {
+            skillObserver.observe(card);
+        });
+
+        // Add parallax effect to floating shapes
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach((shape, index) => {
+                const speed = 0.5 + (index * 0.1);
+                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+        });
+
+        // Individual Campaign Slideshow functionality
+        document.querySelectorAll('.campaign-slideshow').forEach(slideshow => {
+            const images = slideshow.querySelectorAll('.campaign-image');
+            const indicators = slideshow.querySelectorAll('.indicator');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function goToSlide(slideIndex) {
+                // Remove active class from current slide and indicator
+                images[currentSlide].classList.remove('active');
+                indicators[currentSlide].classList.remove('active');
+                
+                // Update current slide
+                currentSlide = slideIndex;
+                
+                // Add active class to new slide and indicator
+                images[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % images.length;
+                goToSlide(nextIndex);
+            }
+
+            function startSlideshow() {
+                slideInterval = setInterval(nextSlide, 4000); // 4 seconds
+            }
+
+            function stopSlideshow() {
+                clearInterval(slideInterval);
+            }
+
+            // Add click events to indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                    stopSlideshow();
+                    startSlideshow(); // Restart the timer
+                });
+            });
+
+            // Pause slideshow on hover
+            slideshow.addEventListener('mouseenter', stopSlideshow);
+            slideshow.addEventListener('mouseleave', startSlideshow);
+
+            // Start the slideshow
+            startSlideshow();
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99b352f801cf8e7e',t:'MTc2MjU4NjU5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
